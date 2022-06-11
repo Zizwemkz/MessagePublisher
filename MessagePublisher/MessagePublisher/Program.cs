@@ -1,42 +1,28 @@
 ﻿using System;
 using System.Text;
 using RabbitMQ.Client;
+using MessagePublisher.Models;
+using MessagePublisher.PublishEventService;
 
-namespace MessagePublisher
-{
-    class Program
-    {
-        static void Main(string[] args)
+
+        var publisher = new Publisher();
+
+        while (true)
         {
-            IConnection conn;
-            IModel channel;
+            Console.WriteLine("Please enter subject for message");
+            var subject = Console.ReadLine();
 
+            Console.WriteLine("Please enter the message to send");
+            var content = Console.ReadLine();
 
-            ConnectionFactory factory = new ConnectionFactory();
-            factory.HostName = "localhost";
-            factory.Port = 5672;
-            factory.VirtualHost = "/";
-            factory.UserName = "guest";
-            factory.Password = "guest";
-
-            conn = factory.CreateConnection();
-            channel = conn.CreateModel();
-
-            channel.ExchangeDeclare("streamer_job", "fanout", true, false, null);
-
-            channel.QueueDeclare("Department_1", true, false, false, null);
-
-            channel.QueueBind("Testqueue", "streamer_job", "");
-            channel.QueueBind("Department_1", "streamer_job", "");
-
-            channel.BasicPublish("streamer_job", "", null, Encoding.UTF8.GetBytes("mesage sent currently 12"));
-
-            //channel.QueueDelete("Postexchange");
-            //channel.QueueDelete("Department_1");
-            //channel.QueueDelete("Department_2");
-
-            //channel.Close();
-            //conn.Close();
-        }
-    }
+            var Date = DateTime.Now.ToString();
+            if (!string.IsNullOrEmpty(content))
+                publisher.SendMessage(new MessageEvent { message = content, subject = subject, date = Date
+                });
+            else
+            {
+                 Environment.Exit(1);
+            }
 }
+   
+

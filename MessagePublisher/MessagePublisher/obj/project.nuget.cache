@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TpDhtVnTsEoidaIcJkeEnCSGiSzhuVOjpoE3VFQ+O7eQeWJnNdCmaJusduZhZzYzS8w2IrO/oDKGMESBjykCrg==",
+  "dgSpecHash": "GGrZkZdS86sp9of1sUVtzzKmgC3RPueVv9fOFp2Zp0VcK8d7+QT67b8MpcaxNphRxgK1/cqnSxpI2FxSEXqlHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mbongenim\\source\\Pracrepo\\MessagePublisher\\MessagePublisher\\MessagePublisher\\MessagePublisher.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mbongenim\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\mbongenim\\.nuget\\packages\\rabbitmq.client\\6.3.1\\rabbitmq.client.6.3.1.nupkg.sha512",
     "C:\\Users\\mbongenim\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\mbongenim\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
