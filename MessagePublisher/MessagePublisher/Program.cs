@@ -19,12 +19,16 @@ while (true)
 
         var Date = DateTime.Now.ToString();
         if (!string.IsNullOrEmpty(content))
-            publisher.SendMessage(new MessageEvent { message = content, subject = subject, date = Date
-            });
+        {
+             publisher.SendMessage(new MessageEvent { message = content, subject = subject, date = Date});
+             Console.WriteLine("Message successfully sent...");
+        }
+           
         else
         {
             Environment.Exit(1);
         }
+      
     }
     catch (Exception ex)
     {
