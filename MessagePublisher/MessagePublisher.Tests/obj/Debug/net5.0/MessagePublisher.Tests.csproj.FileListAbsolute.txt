@@ -1,0 +1,6 @@
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\bin\Debug\net5.0\CoverletSourceRootsMapping
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\obj\Debug\net5.0\MessagePublisher.Tests.csproj.AssemblyReference.cache
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\obj\Debug\net5.0\MessagePublisher.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\obj\Debug\net5.0\MessagePublisher.Tests.AssemblyInfoInputs.cache
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\obj\Debug\net5.0\MessagePublisher.Tests.AssemblyInfo.cs
+C:\Users\mbongenim\source\Pracrepo\MessagePublisher\MessagePublisher\MessagePublisher.Tests\obj\Debug\net5.0\MessagePublisher.Tests.csproj.CoreCompileInputs.cache
