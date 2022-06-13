@@ -12,16 +12,11 @@ namespace MessagePublisher.Service
 {
    public class Publisher : IPublisher
     {
-        private readonly PublisherConnection _rabbitconn;
-        private IConnection _connection;
-        private IModel _channel;
+        private readonly Interface.IRabbitConnection _channel;
 
-        public Publisher(PublisherConnection rabbitconn)
+        public Publisher(Interface.IRabbitConnection channel)
         {
-            _rabbitconn = rabbitconn;
-            _connection = _rabbitconn.getCreateconnection();
-            _channel = _connection.CreateModel();
-
+            _channel = channel;
         }
 
         public bool SendMessage(MessageEvent message)
@@ -29,17 +24,9 @@ namespace MessagePublisher.Service
             var status = false;
             try
             {
-
-                _channel.ExchangeDeclare("streamer_job", "fanout", true, false, null);
-                _channel.QueueDeclare("Department_1", true, false, false, null);
-
-                _channel.QueueBind("Department_1", "streamer_job", "");
-
                 var rawContent = JsonConvert.SerializeObject(message);
                 var encodedContent = Encoding.UTF8.GetBytes(rawContent);
-
-                _channel.BasicPublish("streamer_job", "Department_1", null, encodedContent);
-
+                _channel.FanoutExchangPublisher(encodedContent);
                 status = true;
             }
             catch (Exception ex)
@@ -49,5 +36,8 @@ namespace MessagePublisher.Service
 
             return status;
         }
+
+      
+
     }
 }

@@ -4,12 +4,20 @@ using RabbitMQ.Client;
 using MessagePublisher.Models;
 using MessagePublisher.Service;
 using MessagePublisher.Interface;
+using MessagePublisher.Configure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
- class Program 
+class Program 
 {
-   
-    public static void Processor()
+    public static void Main(string[] args)
     {
+        var container = Startup.ConfigureSerivce();
+        var _publisherService = container.GetService<IPublisher>();
+
+
         while (true)
         {
             try
@@ -23,16 +31,14 @@ using MessagePublisher.Interface;
                 var Date = DateTime.Now.ToString();
                 if (!string.IsNullOrEmpty(content))
                 {
-                    Program obj = new Program(); 
-                    
-                    _entryService.SendMessage(new MessageEvent { message = content, subject = subject, date = Date });
-                    Console.WriteLine("Message successfully sent...");
+                    Program obj = new Program();
+                    _publisherService.SendMessage(new MessageEvent { message = content, subject = subject, date = Date });
+                    Console.WriteLine("================================================= Message successfully sent ========================================");
                 }
 
-                Console.WriteLine("---------------------------------------------------End of line--------------------------------------------------------");
+                Console.WriteLine("----------------------------------------------------- End of line --------------------------------------------------------");
                 Console.WriteLine(" Press [enter] to exit.");
                 Environment.Exit(0);
-
             }
             catch (Exception ex)
             {
@@ -40,7 +46,6 @@ using MessagePublisher.Interface;
             }
         }
     }
-
 
 }
 

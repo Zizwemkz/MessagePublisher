@@ -1,4 +1,5 @@
 ﻿using MessagePublisher.Models;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace MessagePublisher.Interface
    public interface IPublisher
     {
         public bool SendMessage(MessageEvent message);
+      
     }
 }
