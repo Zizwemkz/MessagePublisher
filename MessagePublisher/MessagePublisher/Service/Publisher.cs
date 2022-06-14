@@ -12,9 +12,9 @@ namespace MessagePublisher.Service
 {
    public class Publisher : IPublisher
     {
-        private readonly Interface.IRabbitConnection _channel;
+        private readonly IRabbitConnection _channel;
 
-        public Publisher(Interface.IRabbitConnection channel)
+        public Publisher(IRabbitConnection channel)
         {
             _channel = channel;
         }
